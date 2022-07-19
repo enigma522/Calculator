@@ -13,15 +13,18 @@ function clear() {
 }
 
 $(".num , .operator").click(function() { 
-    x = x + $(this).text();
+    if ($(this).text()=="÷){
+       x=x+"/";
+    }else{
+    x = x + $(this).text();}
     console.log(x);
-    if ((x[x.length-1]=='+') || (x[x.length-1]=='-') || (x[x.length-1]=='*') || (x[x.length-1] == '÷')){
-        if ((x[x.length-2]=='+') || (x[x.length-2]=='-') || (x[x.length-2]=='*') || (x[x.length-2] == '÷')) {
+    if ((x[x.length-1]=='+') || (x[x.length-1]=='-') || (x[x.length-1]=='*') || (x[x.length-1] == '/')){
+        if ((x[x.length-2]=='+') || (x[x.length-2]=='-') || (x[x.length-2]=='*') || (x[x.length-2] == '/')) {
             x = x.slice(0,-1);
         }
     }
     if (x[x.length-2]=="="){
-        if ((x[x.length-1]=='+') || (x[x.length-1]=='-') || (x[x.length-1]=='*') || (x[x.length-1] == '÷')) {
+        if ((x[x.length-1]=='+') || (x[x.length-1]=='-') || (x[x.length-1]=='*') || (x[x.length-1] == '/')) {
             op= $(this).text();
             $(".previous").text($(".current").text());
             previous = $(".current").text();
@@ -42,11 +45,6 @@ $(".num , .operator").click(function() {
 
 $("body").keypress(function (e) { 
     if (e.charCode>=42 && e.charCode<=57) {
-        if (e.key == "/"){
-            x = x + "÷";
-        }else{
-            x = x + e.key;
-        }
         
     if ((x[x.length-1]=='+') || (x[x.length-1]=='-') || (x[x.length-1]=='*') || (x[x.length-1] == '÷')){
         if ((x[x.length-2]=='+') || (x[x.length-2]=='-') || (x[x.length-2]=='*') || (x[x.length-2] == '÷')) {
