@@ -13,11 +13,11 @@ function clear() {
 }
 
 $(".num , .operator").click(function() { 
-    if ($(this).text()=="÷){
-       x=x+"/";
+    if  ($(this).text()=="÷"){
+        x = x + "/";
     }else{
-    x = x + $(this).text();}
-    console.log(x);
+        x = x + $(this).text();
+    }
     if ((x[x.length-1]=='+') || (x[x.length-1]=='-') || (x[x.length-1]=='*') || (x[x.length-1] == '/')){
         if ((x[x.length-2]=='+') || (x[x.length-2]=='-') || (x[x.length-2]=='*') || (x[x.length-2] == '/')) {
             x = x.slice(0,-1);
@@ -45,6 +45,7 @@ $(".num , .operator").click(function() {
 
 $("body").keypress(function (e) { 
     if (e.charCode>=42 && e.charCode<=57) {
+        x = x + e.key;
         
     if ((x[x.length-1]=='+') || (x[x.length-1]=='-') || (x[x.length-1]=='*') || (x[x.length-1] == '÷')){
         if ((x[x.length-2]=='+') || (x[x.length-2]=='-') || (x[x.length-2]=='*') || (x[x.length-2] == '÷')) {
